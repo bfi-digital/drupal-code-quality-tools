@@ -1,0 +1,30 @@
+{
+    "name": "bfi-digital/drupal-code-quality-tools",
+    "description": "This project installs common dev dependencies and handles the scaffolding of required files.",
+    "type": "project",
+    "version": "1.0.0",
+    "license": "agpl-3.0",
+    "require": {
+        "drupal/coder": "^9.0",
+        "mglaman/phpstan-drupal": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.2",
+        "phpstan/phpstan-deprecation-rules": "^2.0"
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[project-root]/lefthook.yaml": "assets/lefthook.yaml",
+                "[project-root]/phpcs.xml": "assets/phpcs.xml",
+                "[project-root]/phpstan.neon": "assets/phpstan.neon"
+            },
+            "gitignore": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "BfiDigital\\DrupalIntegrations\\": "src/"
+        }
+    }
+}

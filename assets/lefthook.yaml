@@ -1,0 +1,3 @@
+# Include the committed project configuration.
+extends:
+  - lefthook-project.yaml

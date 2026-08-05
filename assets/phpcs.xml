@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="Startup">
+  <description>BFI Drupal Coding Standards</description>
+
+  <file>./web/modules/custom</file>
+  <file>./web/themes/custom</file>
+  <file>./web/profiles/custom</file>
+  <arg name="extensions" value="php,module,inc,install,test,profile,theme,css,info,txt,md,yml"/>
+  <config name="drupal_core_version" value="10"/>
+
+  <!--Exclude third party code.-->
+  <exclude-pattern>./web/sites/*</exclude-pattern>
+  <exclude-pattern>./web/themes/custom/*\.(?!theme$)</exclude-pattern>
+
+  <arg name="colors" />
+  <arg value="np"/>
+
+  <!-- Use Drupal rules -->
+  <rule ref="vendor/drupal/coder/coder_sniffer/Drupal">
+  <!-- Example how you would disable a rule you are not compliant with yet: -->
+  <!-- <exclude name="Drupal.Commenting.Deprecated"/> -->
+  </rule>
+  <rule ref="vendor/drupal/coder/coder_sniffer/DrupalPractice"/>
+
+</ruleset>
