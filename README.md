@@ -18,9 +18,7 @@ Once installed, this project will:
 
 ## Requirements
 
-> :memo: **Note:**
-> 
-> Add git SSH/PAT instructions to use in case this repo is made private.
+You should be able to [connect to GitHub using SSH][ssh].
 
 [A `drupal/recommended-project` based Drupal project][drupal-recommended] is
 required. Ensure your project has `drupal/core-composer-scaffold` and
@@ -70,7 +68,7 @@ your dev-dependencies:
 
 PHPStan static analysis tool is installed. The scaffold also provides an initial
 configuration file (`phpstan.neon`), which is basically a config that includes
-your project's PHPStan file.
+your project's `phpstan.neon.dist` file.
 
 ### PHP_CS
 
