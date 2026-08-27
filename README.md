@@ -44,6 +44,16 @@ there already, and list this repo, by running:
 composer config --json --merge extra.drupal-scaffold '{"allowed-packages": ["bfi-digital/drupal-code-quality-tools"]}'
 ```
 
+This package brings in two Composer plugins (`dealerdirect/phpcodesniffer-composer-installer`
+and `phpstan/extension-installer`). Since Composer 2.2, plugins must be
+explicitly allowed in your project's `composer.json`, or `composer require`
+will prompt you (or fail non-interactively). Allow them by running:
+
+```shell
+composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+composer config --no-plugins allow-plugins.phpstan/extension-installer true
+```
+
 Finally, require this package by running:
 
 ```shell
