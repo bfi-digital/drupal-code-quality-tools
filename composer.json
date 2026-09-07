@@ -20,10 +20,5 @@
             },
             "gitignore": true
         }
-    },
-    "autoload": {
-        "psr-4": {
-            "BfiDigital\\DrupalCodeQualityTools\\": "src/"
-        }
     }
 }
