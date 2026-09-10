@@ -15,9 +15,18 @@
     "extra": {
         "drupal-scaffold": {
             "file-mapping": {
-                "[project-root]/lefthook.yaml": "assets/lefthook.yaml",
-                "[project-root]/phpcs.xml": "assets/phpcs.xml",
-                "[project-root]/phpstan.neon": "assets/phpstan.neon"
+                "[project-root]/lefthook.yaml": {
+                    "path": "assets/lefthook.yaml",
+                    "overwrite": false
+                },
+                "[project-root]/phpcs.xml": {
+                    "path": "assets/phpcs.xml",
+                    "overwrite": false
+                },
+                "[project-root]/phpstan.neon": {
+                    "path": "assets/phpstan.neon",
+                    "overwrite": false
+                }
             },
             "gitignore": true
         }

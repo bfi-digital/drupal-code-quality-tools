@@ -11,6 +11,10 @@ Once installed, this project will:
    relevant configuration files in the project root;
 3. Update the `.gitignore` file to ignore copied scaffold files.
 
+Scaffolded files are only copied if they don't already exist at the
+destination. If your project already has a `lefthook.yaml`, `phpcs.xml`, or
+`phpstan.neon` file, it will be left untouched.
+
 [dcs]: https://www.drupal.org/docs/develop/using-composer/using-drupals-composer-scaffold
 [lh]: https://lefthook.dev
 [phpstan]: https://phpstan.org
@@ -78,13 +82,15 @@ your dev-dependencies:
 
 PHPStan static analysis tool is installed. The scaffold also provides an initial
 configuration file (`phpstan.neon`), which is basically a config that includes
-your project's `phpstan.neon.dist` file.
+your project's `phpstan.neon.dist` file. If a `phpstan.neon` file already
+exists in your project root, it is left as-is and not overwritten.
 
 ### PHP_CS
 
 PHP_CodeSniffer, and fixer tool is installed, along with the `drupal/coder`
 module, which provides [Drupal specific standards][drupal-coder]. The scaffold
-provides a default `phpcs.xml` file.
+provides a default `phpcs.xml` file. If a `phpcs.xml` file already exists in
+your project root, it is left as-is and not overwritten.
 
 [drupal-coder]: https://www.drupal.org/project/coder
 
@@ -93,4 +99,5 @@ provides a default `phpcs.xml` file.
 A config file (`lefthook.yaml`) for [Lefthook][lh] is copied to your project's
 root, and added to the `.gitignore` file. This file basically includes a
 `lefthook-project.yaml`. Feel free to configure your Lefthook hooks in that
-file.
+file. If a `lefthook.yaml` file already exists in your project root, it is
+left as-is and not overwritten.
