@@ -6,7 +6,8 @@ in desired locations inside Drupal project directories.
 
 Once installed, this project will:
 
-1. Copy a default [Lefthook][lh] configuration file to the project root;
+1. Install [Lefthook][lh] and add a copy of the default configuration file to
+   the project root;
 2. Install [PHPStan][phpstan] and [PHP_CodeSniffer][phpcs], and place the
    relevant configuration files in the project root;
 3. Update the `.gitignore` file to ignore copied scaffold files.
@@ -67,14 +68,15 @@ composer require bfi-digital/drupal-code-quality-tools --dev
 When requested, enter your Personal Access Token.
 
 This package will install the following packages, so you can remove them from
-your dev-dependencies:
+your project's own `require` or `require-dev` sections:
 
 1. `dealerdirect/phpcodesniffer-composer-installer`
 2. `drupal/coder`
-3. `mglaman/phpstan-drupal`
-4. `phpstan/extension-installer`
-5. `phpstan/phpstan`
-6. `phpstan/phpstan-deprecation-rules`
+3. `evilmartians/lefthook`
+4. `mglaman/phpstan-drupal`
+5. `phpstan/extension-installer`
+6. `phpstan/phpstan`
+7. `phpstan/phpstan-deprecation-rules`
 
 ## Installed tools
 
@@ -94,10 +96,16 @@ your project root, it is left as-is and not overwritten.
 
 [drupal-coder]: https://www.drupal.org/project/coder
 
-## Lefthook for managing Git Hooks
+### Lefthook
 
-A config file (`lefthook.yaml`) for [Lefthook][lh] is copied to your project's
-root, and added to the `.gitignore` file. This file basically includes a
-`lefthook-project.yaml`. Feel free to configure your Lefthook hooks in that
-file. If a `lefthook.yaml` file already exists in your project root, it is
-left as-is and not overwritten.
+[Lefthook][lh] is a Git hooks manager that allows you to configure your Git
+hooks in a YAML configuration file.
+
+A config file (`lefthook.yaml`) is copied to your project's root, and added to
+the `.gitignore` file. This file basically includes a `lefthook-project.yaml`.
+Feel free to configure your Lefthook hooks in that file. If a `lefthook.yaml`
+file already exists in your project root, it is left as-is and not overwritten.
+
+If you are using containers in your development environment, remember to run
+the tools inside the containers. Prepend the commands in your hooks with the
+relevant command, such as `ddev exec`.
