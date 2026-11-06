@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  BFI Drupal PHPUnit configuration.
+
+  Requires drupal/core-dev to be installed in the project, matching the
+  version of drupal/core-recommended. The environment defaults below assume
+  a DDEV setup; adjust them for other environments.
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="web/core/tests/bootstrap.php"
+         colors="true">
+  <php>
+    <ini name="error_reporting" value="32767"/>
+    <ini name="memory_limit" value="-1"/>
+    <!-- Base URL of the site under test, used by Functional tests. -->
+    <env name="SIMPLETEST_BASE_URL" value="http://web"/>
+    <!-- Database used by Kernel and Functional tests. -->
+    <env name="SIMPLETEST_DB" value="mysql://db:db@db/db"/>
+    <!-- Absolute path for HTML output of Functional tests. -->
+    <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/var/www/html/web/sites/simpletest/browser_output"/>
+    <!-- Set to "weak" or remove to report deprecations. -->
+    <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled"/>
+    <!--
+      FunctionalJavascript tests also need MINK_DRIVER_ARGS_WEBDRIVER, e.g.
+      as provided by the ddev/ddev-selenium-standalone-chrome add-on.
+    -->
+  </php>
+  <testsuites>
+    <testsuite name="unit">
+      <directory>./web/modules/custom/*/tests/src/Unit</directory>
+      <directory>./web/themes/custom/*/tests/src/Unit</directory>
+    </testsuite>
+    <testsuite name="kernel">
+      <directory>./web/modules/custom/*/tests/src/Kernel</directory>
+      <directory>./web/themes/custom/*/tests/src/Kernel</directory>
+    </testsuite>
+    <testsuite name="functional">
+      <directory>./web/modules/custom/*/tests/src/Functional</directory>
+      <directory>./web/themes/custom/*/tests/src/Functional</directory>
+    </testsuite>
+    <testsuite name="functional-javascript">
+      <directory>./web/modules/custom/*/tests/src/FunctionalJavascript</directory>
+      <directory>./web/themes/custom/*/tests/src/FunctionalJavascript</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

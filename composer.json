@@ -6,7 +6,7 @@
     "require": {
         "php": ">=8.3",
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-        "drupal/coder": "^9.0",
+        "drupal/coder": "^8.3.30 || ^9.0",
         "evilmartians/lefthook": "^2.2",
         "mglaman/phpstan-drupal": "^2.1",
         "phpstan/extension-installer": "^1.4",
@@ -26,6 +26,10 @@
                 },
                 "[project-root]/phpstan.neon": {
                     "path": "assets/phpstan.neon",
+                    "overwrite": false
+                },
+                "[project-root]/phpunit.xml.dist": {
+                    "path": "assets/phpunit.xml.dist",
                     "overwrite": false
                 }
             },
